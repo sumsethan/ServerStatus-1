@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
-# Update by : https://github.com/cppla/ServerStatus
+# Update by : https://github.com/sumsethan/ServerStatus-1
 # 支持Python版本：2.7 to 3.5; requirements.txt: requests, PrettyTable
-# 时间: 20180828
+# 时间: 20190531
 '''
 maybe better by youself
 '''
@@ -29,7 +29,7 @@ def sscmd(address):
 
         ss = PrettyTable(
             [
-                "Flight",
+                "状态",
                 "节点名",
                 # "虚拟化",
                 "位置",
@@ -45,7 +45,7 @@ def sscmd(address):
         for i in jsonR["servers"]:
             ss.add_row(
                 [
-                    "%s" % 'MH361' if i["ip_status"] is True else 'MH370',
+                    "%s" % '在线' if i["ip_status"] is True else '离线',
                     "%s" % i["name"],
                     # "%s" % i["type"],
                     "%s" % i["location"],
