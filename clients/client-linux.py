@@ -161,7 +161,10 @@ def ip_status():
         return True
 
 def get_network(ip_version):
-        HOST = "ipv4.google.com"
+          if(ip_version == 4):
+	        HOST = "ipv4.google.com"
+	    elif(ip_version == 6):
+	        HOST = "ipv6.google.com"
     try:
         s = socket.create_connection((HOST, 80), 2)
         s.close()
