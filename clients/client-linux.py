@@ -6,7 +6,7 @@
 # 时间: 20190128
 
 
-SERVER = "127.0.0.1"
+SERVER = "107.174.204.12"
 PORT = 35601
 USER = "s01"
 PASSWORD = "USER_DEFAULT_PASSWORD"
@@ -161,10 +161,7 @@ def ip_status():
         return True
 
 def get_network(ip_version):
-    if(ip_version == 4):
         HOST = "ipv4.google.com"
-    elif(ip_version == 6):
-        HOST = "ipv6.google.com"
     try:
         s = socket.create_connection((HOST, 80), 2)
         s.close()
