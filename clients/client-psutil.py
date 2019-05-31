@@ -6,7 +6,7 @@
 # 支持操作系统： Linux, Windows, OSX, Sun Solaris, FreeBSD, OpenBSD and NetBSD, both 32-bit and 64-bit architectures
 # 时间： 20190128
 
-SERVER = "127.0.0.1"
+SERVER = "3.0.88.88"
 PORT = 35601
 USER = "s01"
 PASSWORD = "USER_DEFAULT_PASSWORD"
