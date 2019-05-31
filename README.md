@@ -21,34 +21,20 @@
 * 20180312, 加入失联(被照顾)检测【正常：MH361, 屏蔽：MH370】，校准虚拟化(container)流量统计异常　　　　　　
 * 20170807, 更新平均1，5，15负载, 去掉无用的IPV6信息，增加服务器总流量监控                           
 
-# 自动部署：
+# 客户端自动部署：
 
-【服务端】：
 ```bash
-wget https://raw.githubusercontent.com/cppla/ServerStatus/master/autodeploy/config.json
-docker run -d --restart=always --name=serverstatus -v {$path}/config.json:/ServerStatus/server/config.json -p {$port}:80 -p {$port}:35601 cppla/serverstatus
+wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/sumsethan/ServerStatus-1/master/clients/client-linux.py' && nohup python client-linux.py SERVER={$SERVER} USER={$USER} PASSWORD={$PASSWORD} >/dev/null 2>&1 &
 
-eg:
-docker run -d --restart=always --name=serverstatus -v ~/config.json:/ServerStatus/server/config.json -p 80:80 -p 35601:35601 cppla/serverstatus
 ```
 
-【客户端】：
-```bash
-wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' && nohup python client-linux.py SERVER={$SERVER} USER={$USER} PASSWORD={$PASSWORD} >/dev/null 2>&1 &
-
-eg:
-wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' && nohup python client-linux.py SERVER=45.79.67.132 USER=s04  >/dev/null 2>&1 &
-```
-
-# 手动安装教程：     
+# 服务端手动安装：     
    
 【克隆代码】:
 ```
-git clone https://github.com/cppla/ServerStatus.git
+git clone https://github.com/sumsethan/ServerStatus-1.git
 ```
 
-【服务端配置】（服务端程序在ServerStatus/web下）:  
-          
 一、生成服务端程序              
 ```
 cd ServerStatus/server
@@ -86,7 +72,9 @@ web-dir参数为上一步设置的网站根目录，务必修改成自己网站�
 ./sergate --config=config.json --web-dir=/home/wwwroot/default   
 ```
 
-【客户端配置】（客户端程序在ServerStatus/clients下）：          
+# 客户端手动配置
+
+（客户端程序在ServerStatus/clients下）：          
 客户端有两个版本，client-linux为普通linux，client-psutil为跨平台版，普通版不成功，换成跨平台版即可。        
 
 一、client-linux版配置：       
