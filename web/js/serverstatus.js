@@ -138,10 +138,10 @@ function uptime() {
 			// Ipstatus
 			if (result.servers[i].ip_status) {
 				TableRow.children["ip_status"].children[0].children[0].className = "progress-bar progress-bar-success";
-				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>在线</small>";
+				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>可连通</small>";
 			} else {
 				TableRow.children["ip_status"].children[0].children[0].className = "progress-bar progress-bar-danger";
-				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>离线</small>";
+				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>已断开</small>";
 			}
 
 			// Name
